@@ -1,0 +1,24 @@
+CREATE TABLE user_in
+(
+  user_name VARCHAR(255) NOT NULL,
+  full_name VARCHAR(255) NOT NULL,
+  passWORD VARCHAR(255) NOT NULL,
+  PRIMARY KEY (user_name)
+);
+
+CREATE TABLE item
+(
+  item_id VARCHAR(255) NOT NULL,
+  item_name VARCHAR(255) NOT NULL,
+  quantity VARCHAR(255) NOT NULL,
+  PRIMARY KEY (item_id)
+);
+
+CREATE TABLE add_delet
+(
+  user_name VARCHAR(255) NOT NULL,
+  item_id VARCHAR(255) NOT NULL,
+  PRIMARY KEY (user_name, item_id),
+  FOREIGN KEY (user_name) REFERENCES user(user_name),
+  FOREIGN KEY (item_id) REFERENCES item(item_id)
+);
